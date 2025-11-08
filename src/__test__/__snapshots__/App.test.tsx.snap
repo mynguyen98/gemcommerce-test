@@ -3,12 +3,110 @@
 exports[`toUpperCase 1`] = `
 <DocumentFragment>
   <div
-    class="w-screen h-screen bg-neutral-950 flex items-center justify-center text-neutral-100"
+    class="w-screen h-screen bg-neutral-950 flex items-center justify-center "
   >
     <div
-      class="w-96 bg-neutral-800 p-4 rounded-lg"
+      class="w-full flex gap-5 flex-col justify-center items-center max-w-2xl bg-neutral-800 p-8 rounded-lg "
     >
-      // Your component go here
+      <h1
+        class="text-2xl font-semibold text-gray-100"
+      >
+        Nguyễn Cảnh Mỹ
+      </h1>
+      <h1
+        class="text-xl font-semibold text-gray-400"
+      >
+        Gemcommerce test
+      </h1>
+      <div
+        class="p-4 flex flex-col items-center gap-4 w-fit bg-gray-950"
+      >
+        <div
+          class="flex w-62 items-center justify-between gap-1"
+        >
+          <p
+            class="flex-1 text-xs text-gray-400 font-normal w-16"
+          >
+            Unit
+          </p>
+          <div
+            class="flex w-35 h-9 gap-0.5 p-0.5 rounded-corner-400 bg-gray-900"
+          >
+            <button
+              class="
+              flex-1 h-8 rounded-corner-300 text-xs font-medium cursor-pointer transition-colors duration-150
+              bg-gray-700 text-gray-50
+            "
+            >
+              %
+            </button>
+            <button
+              class="
+              flex-1 h-8 rounded-corner-300 text-xs font-medium cursor-pointer transition-colors duration-150
+              text-gray-400
+            "
+            >
+              px
+            </button>
+          </div>
+        </div>
+        <div
+          class="flex w-62 items-center justify-between gap-1"
+        >
+          <p
+            class="flex-1 text-xs text-gray-400 font-normal w-16"
+          >
+            Value
+          </p>
+          <div
+            class="group flex w-35 h-9 bg-gray-900 items-center focus-within:outline rounded-corner-400 focus-within:outline-blue-500"
+          >
+            <div
+              class="relative flex items-center justify-center"
+            >
+              <button
+                class="
+        w-9 h-9 group/minus rounded-l-corner-400 flex items-center justify-center
+        transition-colors duration-150 bg-gray-900
+        group-has-[input:hover]:bg-gray-800
+        opacity-50 !bg-gray-900 pointer-events-none
+      "
+                disabled=""
+              >
+                <div
+                  class="w-3 h-3 bg-gray-400"
+                  style="mask-image: url(/assets/icons/ic_minus.svg); mask-size: contain; mask-repeat: no-repeat; mask-position: center;"
+                />
+              </button>
+            </div>
+            <div
+              class="flex-1 min-w-0 h-full"
+            >
+              <input
+                class="w-full h-full bg-gray-900 hover:bg-gray-800 text-gray-50 text-center text-xs
+              border-none outline-none 
+              transition-colors duration-150
+            "
+                type="text"
+                value="0"
+              />
+            </div>
+            <button
+              class="
+        w-9 h-9 group/plus rounded-r-corner-400 flex items-center justify-center
+        transition-colors duration-150 bg-gray-900
+        group-has-[input:hover]:bg-gray-800
+        hover:bg-gray-800 active:bg-gray-800 cursor-pointer
+      "
+            >
+              <div
+                class="w-3 h-3 bg-gray-50"
+                style="mask-image: url(/assets/icons/ic_plus.svg); mask-size: contain; mask-repeat: no-repeat; mask-position: center;"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>
