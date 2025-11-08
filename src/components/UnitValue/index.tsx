@@ -23,6 +23,10 @@ export const UnitValue: React.FC<UnitValueProps> = ({
   };
 
   const handleUnitChange = (newUnit: Unit) => {
+    if (newUnit === selectedUnit) {
+      return;
+    }
+    
     setSelectedUnit(newUnit);
     
     let finalValue = value;

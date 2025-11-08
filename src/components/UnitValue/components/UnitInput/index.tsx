@@ -91,7 +91,6 @@ export const UnitInput: React.FC<UnitInputProps> = ({
     isDecrementDisabled,
     isIncrementDisabled,
   } = useUnitInput({ value, onChange, unit, min, step });
-  console.log('UnitInput rendered with value:', value, 'localValue:', localValue);
   return (
     <div className="flex w-62 items-center justify-between gap-1">
       <p className="flex-1 text-xs text-gray-400 font-normal w-16">Value</p>
