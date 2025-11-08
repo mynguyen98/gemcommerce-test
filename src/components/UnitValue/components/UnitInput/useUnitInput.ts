@@ -33,17 +33,25 @@ export const useUnitInput = ({
   const parseInputValue = (input: string): number | null => {
     if (!input.trim()) return null;
 
-    // Replace comma with dot and extract valid number pattern
-    const cleaned = input.replace(',', '.').match(/^-?\d*\.?\d*/)?.[0] || '';
+    // Replace all commas with dots
+    const cleaned = input.replace(/,/g, '.');
+    
+    // Check invalid pattern like 12.4.5
+    const dotCount = (cleaned.match(/\./g) || []).length;
+    if (dotCount > 1) {
+      return null; // Invalid pattern, will revert to previous value
+    }
+    
+    const match = cleaned.match(/^-?\d*\.?\d*/)?.[0] || '';
     
     // Check for invalid patterns
-    if (!cleaned || cleaned === '-' || cleaned === '.' || cleaned.endsWith('.')) {
+    if (!match || match === '-' || match === '.' || match.endsWith('.')) {
       return null;
     }
 
-    const numValue = Number(cleaned);
+    const numValue = Number(match);
     return isNaN(numValue) ? null : numValue;
-    };
+  };
 
   const updateValue = (delta: number) => {
     let newValue = value + delta;

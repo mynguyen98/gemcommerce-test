@@ -381,7 +381,7 @@ describe('UnitValue Component', () => {
       });
     });
 
-    it('should convert 12.4.5 to 12.4 on blur', async () => {
+    it('should revert to previous valid value when input has multiple dots (12.4.5)', async () => {
       const user = userEvent.setup();
       const onChange = vi.fn();
       render(<UnitValue onChange={onChange} />);
@@ -389,11 +389,17 @@ describe('UnitValue Component', () => {
       const input = screen.getByRole('textbox');
       await user.click(input);
       await user.clear(input);
+      await user.type(input, '50');
+      fireEvent.blur(input);
+      onChange.mockClear();
+      
+      await user.click(input);
+      await user.clear(input);
       await user.type(input, '12.4.5');
       fireEvent.blur(input);
       
       await waitFor(() => {
-        expect(onChange).toHaveBeenCalledWith({ value: 12.4, unit: UNITS.PERCENT });
+        expect(onChange).toHaveBeenCalledWith({ value: 50, unit: UNITS.PERCENT });
       });
     });
   });
