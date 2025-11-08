@@ -30,7 +30,7 @@ export const useUnitInput = ({
   }, [value, isFocused]);
 
   // Clean and parse input value
-const parseInputValue = (input: string): number | null => {
+  const parseInputValue = (input: string): number | null => {
     if (!input.trim()) return null;
 
     // Replace comma with dot and extract valid number pattern
@@ -43,19 +43,19 @@ const parseInputValue = (input: string): number | null => {
 
     const numValue = Number(cleaned);
     return isNaN(numValue) ? null : numValue;
+    };
+
+  const updateValue = (delta: number) => {
+    let newValue = value + delta;
+    if (unit === UNITS.PERCENT) newValue = Math.min(newValue, PERCENT_MAX);
+    newValue = Math.max(newValue, min);
+    onChange(newValue);
+    setLocalValue(newValue.toString());
+    setPreviousValidValue(newValue);
   };
 
-const updateValue = (delta: number) => {
-  let newValue = value + delta;
-  if (unit === UNITS.PERCENT) newValue = Math.min(newValue, PERCENT_MAX);
-  newValue = Math.max(newValue, min);
-  onChange(newValue);
-  setLocalValue(newValue.toString());
-  setPreviousValidValue(newValue);
-};
-
-const handleIncrement = () => updateValue(step);
-const handleDecrement = () => updateValue(-step);
+  const handleIncrement = () => updateValue(step);
+  const handleDecrement = () => updateValue(-step);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
